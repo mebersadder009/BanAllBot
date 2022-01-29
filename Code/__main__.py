@@ -2,6 +2,7 @@ import logging
 from . import bot
 from pyrogram import Client, idle
 from pyrogram import filters
+from Code import OWNER_USERNAME as own
 from Code.helpers.Decorators import authorized_users_only
 
 
