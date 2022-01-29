@@ -7,7 +7,7 @@ class Config:
     TELEGRAM_APP_HASH=os.environ['TELEGRAM_APP_HASH']
     TELEGRAM_APP_ID=int(os.environ['TELEGRAM_APP_ID'])
     TELEGRAM_SUDO_ID=int(os.environ['TELEGRAM_SUDO_ID'])
-    OWNER_USERNAME=os.environ['OWNER_USERNAME'])
+    OWNER_USERNAME=os.environ['OWNER_USERNAME']
 
     if not TELEGRAM_TOKEN:
         raise ValueError('TELEGRAM BOT TOKEN not set')
