@@ -1,4 +1,3 @@
-from pyrogram import Client,filters
 import logging
 import os
 
@@ -9,31 +8,23 @@ class Config:
     TELEGRAM_SUDO_ID=int(os.environ['TELEGRAM_SUDO_ID'])
     OWNER_USERNAME=os.environ['OWNER_USERNAME']
 
-    if not TELEGRAM_TOKEN:
+    if not BOT_TOKEN:
         raise ValueError('TELEGRAM BOT TOKEN not set')
     
-    if not TELEGRAM_APP_HASH:
+    if not API_HASH:
         raise ValueError("TELEGRAM_APP_HASH not set, set it first")
 
-    if not TELEGRAM_APP_ID:
+    if not API_ID:
         raise ValueError("TELEGRAM_APP_ID not set, set it first")
 
-    if not TELEGRAM_SUDO_ID:
+    if not SUDO:
         raise ValueError("TELEGRAM_SUDO_ID not set, set it first")
 
     if not OWNER_USERNAME:
         raise ValueError("OWNER_USERNAME not set, set it first")
 
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
-bot=Client(
-           ":memory:",
-           api_id=Config.TELEGRAM_APP_ID,
-           api_hash=Config.TELEGRAM_APP_HASH,
-           bot_token=Config.TELEGRAM_TOKEN
-)
+logging.getLogger("telethon").setLevel(logging.WARNING)
