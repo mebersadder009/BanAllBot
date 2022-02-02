@@ -1,30 +1,17 @@
 import logging
-import os
+from os import environ as e
 
-class Config:
-    TELEGRAM_TOKEN=os.environ['TELEGRAM_TOKEN']
-    TELEGRAM_APP_HASH=os.environ['TELEGRAM_APP_HASH']
-    TELEGRAM_APP_ID=int(os.environ['TELEGRAM_APP_ID'])
-    TELEGRAM_SUDO_ID=int(os.environ['TELEGRAM_SUDO_ID'])
-    OWNER_USERNAME=os.environ['OWNER_USERNAME']
+from dotenv import load_dotenv
+from telethon import TelegramClient
+from telethon.sessions import StringSession
 
-    if not BOT_TOKEN:
-        raise ValueError('TELEGRAM BOT TOKEN not set')
-    
-    if not API_HASH:
-        raise ValueError("TELEGRAM_APP_HASH not set, set it first")
-
-    if not API_ID:
-        raise ValueError("TELEGRAM_APP_ID not set, set it first")
-
-    if not SUDO:
-        raise ValueError("TELEGRAM_SUDO_ID not set, set it first")
-
-    if not OWNER_USERNAME:
-        raise ValueError("OWNER_USERNAME not set, set it first")
-
+load_dotenv()
 logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
-logging.getLogger("telethon").setLevel(logging.WARNING)
+API_KEY = e.get("API_KEY")
+API_HASH = e.get("API_HASH")
+OWNER_ID = int(e.get("OWNER_ID"))
+TOKEN = e.get("TOKEN")
+
+bot = TelegramClient(None, API_KEY, API_HASH)
