@@ -3,7 +3,6 @@ from os import environ as e
 
 from dotenv import load_dotenv
 from telethon import TelegramClient
-from telethon.sessions import StringSession
 
 load_dotenv()
 logging.basicConfig(
