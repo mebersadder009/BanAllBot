@@ -4,16 +4,26 @@
     "repository": "https://github.com/TeamRaichu/BanAllBot",
     "image": "heroku/python",
     "env": {
-        "TELEGRAM_TOKEN": {
-        "description": "Get this value from @BotFather"
-        },
-        "TELEGRAM_APP_HASH":{
-            "description": "Get this value from https://my.telegram.org"
-        },
-        "TELEGRAM_APP_ID":{
-            "description": "Get this value from https://my.telegram.org"
-        }
-    },
+        "TOKEN": {
+         "description": "Your bot token. Get one from @BotFather duh",
+         "required": true,
+         "value": ""
+      },
+      "API_KEY": {
+         "description": "Get API_KEY from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "API_HASH": {
+         "description": "Get API_HASH from my.telegram.org, used for telethon based modules.",
+         "required": true,
+         "value": ""
+      },
+      "OWNER_ID": {
+         "description": "Your user ID as an integer.",
+         "required": true,
+         "value": ""
+      },
     "formation": {
             "worker": {
                 "quantity": 1,
